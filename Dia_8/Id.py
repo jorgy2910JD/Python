@@ -1,5 +1,3 @@
-
-
 import json
 
 archivito= open('Dates.json')
@@ -10,4 +8,4 @@ for i in miJson['ventas']['pedidos']:
     ListaPedidos.append(i['id_cliente'])
 Sin_repetir= set(ListaPedidos)
 
-print(Sin_repetir)
+print(Sin_repetir) 
