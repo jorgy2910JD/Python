@@ -1,10 +1,14 @@
 import json
 
-archivito= open('Dates.json')
-miJson= json.load(archivito)
+with open("Dates.json", "r") as f:
+    data = json.load(f)
+    comerciales = data["ventas"]["comerciales"]
 
-def Comi_mayor(comercial):
-    return comercial['comisión']
-comisionsita= (miJson['ventas'] ['comerciales'])
-comisiónM= sorted(comisionsita, key=Comi_mayor, reverse=True)
-print(comisiónM[0],comisiónM[1]) 
+max_comision = 0
+
+for comercial in comerciales:
+    comision = comercial["comision"]
+    if comision > max_comision:
+        max_comision = comision
+
+print(f"El valor máximo de la comisión es {max_comision}") 
